@@ -1,6 +1,5 @@
 const tabList = document.querySelector('[role="tablist"]');
 const tabs = tabList.querySelectorAll('[role="tab"]');
-
 tabList.addEventListener("keydown", changeTabFocus);
 
 tabs.forEach((tab) => {
@@ -46,7 +45,6 @@ function changeTabPanel(e) {
 
   const tabContainer = targetTab.parentNode;
   const mainContainer = tabContainer.parentNode;
-
   // Deselect the previous tab
   tabContainer
     .querySelector("[aria-selected= 'true']")
@@ -62,7 +60,7 @@ function changeTabPanel(e) {
   showContent(mainContainer, [`#${targetPanel}`]);
 
   //   Hide all the Images
-  hideContent(mainContainer, "picture");
+  hideContent(mainContainer, "[role = 'tab-image']");
 
   //   Display the selected Image
   showContent(mainContainer, [`#${targetImage}`]);
